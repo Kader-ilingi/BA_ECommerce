@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ECommerce.DAL\ECommerce.DAL.csproj" />
     <ProjectReference Include="..\ECommerce.Model\ECommerce.Model.csproj" />
   </ItemGroup>
