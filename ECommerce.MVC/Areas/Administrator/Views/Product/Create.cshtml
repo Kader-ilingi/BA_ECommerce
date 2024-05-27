@@ -1,0 +1,35 @@
+﻿@model ProductViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div>
+        <label asp-for="ProductName"></label>
+        <input class="form-control" type="text" asp-for="ProductName" />
+    </div>
+    <div>
+        <label asp-for="UnitPrice"></label>
+        <input class="form-control" type="number" asp-for="UnitPrice" />
+    </div>
+    <div>
+        <label asp-for="UnitsInStock"></label>
+        <input class="form-control" type="number" asp-for="UnitsInStock" />
+    </div>
+    <div>
+        <!--Burada bir select list oluşturularak bütün kategoriler listelenecek.Modelimizde category olmadığı için selecte categoryiye iletmek için farklı bir taşıyıcı model oluşturmamız gerekiyor. Yada hazır modelimizde categoryiyi liste şeklinde productviewmodele ekleyerek bunu sağlayabiliriz.-->
+        <select class="form-control" asp-items="@ViewBag.CategoryListItem" asp-for="CategoryId">
+            <option selected="" disabled>Select Category</option>
+        </select>
+
+
+    </div>
+
+    <div>
+        <input class="form-control" type="file" name="productImage" />
+    </div>
+
+    <button class="btn btn-success" type="submit">Oluştur</button>
+</form>
+

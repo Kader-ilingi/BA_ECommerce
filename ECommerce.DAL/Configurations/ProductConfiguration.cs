@@ -23,6 +23,7 @@ namespace ECommerce.DAL.Configurations
             //Properties
             builder.Property(x => x.ProductName).IsRequired(true);
             builder.Property(x => x.ProductName).HasMaxLength(255);
+            builder.Property(x => x.ImagePath).IsRequired(false);
 
             //HasData
             builder.HasData(SeedProductData());

@@ -11,12 +11,12 @@ namespace ECommerce.BLL.Repositories.Abstracts
     {
         IEnumerable<Product> GetAllProducts();
         Product GetProductById(int id);
-        Task<string> CreateProduct(Product product);
-        Task<string> DeleteProduct(Product product);
-        Task<string> UpdateProduct(Product product);
+        Task<string> CreateProductAsync(Product product);
+        Task<string> DeleteProductAsync(Product product);
+        Task<string> UpdateProductAsync(Product product);
 
         IEnumerable<Product> GetActiveProducts();
         IEnumerable<Product> GetPassiveProducts();
-        Task<string> DestroyProduct(Product product);
+        Task<string> DestroyProductAsync(Product product);
     }
 }

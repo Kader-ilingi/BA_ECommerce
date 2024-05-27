@@ -18,7 +18,7 @@ namespace ECommerce.BLL.Repositories.Concretes.BaseConcrete
         public BaseRepository(ECommerceContext context)
         {
             _context = context;
-            _entities=_context.Set<T>();
+            _entities=_context.Set<T>();//cast işlemini bir kere aldımconstructırda ve bunu constructır  tetiklendiği anda bu cast işlemi devreye alınmış olcaktır
         }
         /// <summary>
         /// parametreden alınan entity'i veritabanın ekler ve bir string değer döner.

@@ -14,12 +14,14 @@ builder.Services.AddControllersWithViews();
 //Dependecy injection
 
 //Adddbcontext
-builder.Services.AddDbContext<ECommerceContext>(options=>options.UseSqlServer("Server=LAPTOP-7RVI861P\\SQLEXPRESS;Database=ECommerceDb;Trusted_Connection=True;TrustServerCertificate=True;"));
+builder.Services.AddDbContext<ECommerceContext>(options=>options.UseSqlServer("Server=LAPTOP-7RVI861P\\SQLEXPRESS;Database=ECommerceDb;Trusted_Connection=True;TrustServerCertificate=True;",b=>b.MigrationsAssembly("ECommerce.MVC")));
 //Repository Service
 builder.Services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
 
 //Entity Services
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ISupplierService, SupplierService>();
 
 
 

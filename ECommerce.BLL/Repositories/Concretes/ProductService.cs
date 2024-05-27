@@ -18,17 +18,17 @@ namespace ECommerce.BLL.Repositories.Concretes
             _repositoryProduct = repositoryProduct;
         }
 
-        public async Task<string> CreateProduct(Product product)
+        public async Task<string> CreateProductAsync(Product product)
         {
             return await _repositoryProduct.Create(product);
         }
 
-        public async Task<string> DeleteProduct(Product product)
+        public async Task<string> DeleteProductAsync(Product product)
         {
             return await _repositoryProduct.Delete(product);
         }
 
-        public async Task<string> DestroyProduct(Product product)
+        public async Task<string> DestroyProductAsync(Product product)
         {
             return await _repositoryProduct.DestroyData(product);
         }
@@ -53,7 +53,7 @@ namespace ECommerce.BLL.Repositories.Concretes
             return _repositoryProduct.GetById(id);
         }
 
-        public async  Task<string> UpdateProduct(Product Product)
+        public async  Task<string> UpdateProductAsync(Product Product)
         {
             return await _repositoryProduct.Update(Product);
         }

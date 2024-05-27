@@ -1,0 +1,19 @@
+﻿@model ECommerce.BLL.ViewModels.CategoryViewModels.CategoryViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h1>Create</h1>
+<form method="post">
+    <div>
+        <label asp-for="CategoryName"></label>
+        <input type="text" asp-for="CategoryName"/>
+    </div>
+    <div>
+        <label asp-for="Description"></label>
+        <input type="text" asp-for="Description" />
+    </div>
+    <button type="submit">Oluştur</button>
+</form>
+

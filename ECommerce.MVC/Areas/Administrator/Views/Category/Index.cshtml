@@ -1,4 +1,4 @@
-﻿
+﻿@model List<CategoryListViewModel>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
@@ -6,3 +6,58 @@
 
 <h1>Area Category Index</h1>
 
+<table>
+    <tr>
+        <th>ID</th>
+        <th>CategoryName</th>
+        <th>Description</th>
+        <th>Is Active</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.CategoryName</td>
+            <td>@item.Description</td>
+            <td>
+                @*  @if (item.IsActive)
+            {
+            <span>Aktif</span>
+            }else
+            {
+            <span>Pasif</span>
+            } *@
+
+                <!--Ternary If: tek satırda karar yapısı kullanımı-->
+                @{
+                    string result = item.IsActive ? "Aktif" : "Pasif";
+                    <span>@result</span>
+                }
+            </td>
+            <td>
+                @switch (item.Status)
+                {
+                    case ECommerce.Model.Enums.DataStatus.DELETED:
+                        <span>Silinmiş</span>
+                        break;
+
+                    case ECommerce.Model.Enums.DataStatus.UPDATED:
+                        <span>Güncellenmiş</span>
+                        break;
+
+                    case ECommerce.Model.Enums.DataStatus.INSERTED:
+                        <span>Eklendi</span>
+                        break;
+
+                }
+            </td>
+            <td>
+                <a asp-action="Update" asp-controller="Category" asp-route-id="@item.Id">Update</a>
+                <a asp-action="Delete" asp-area="Administrator" asp-controller="Category" asp-route-id="@item.Id">Delete</a>
+
+            </td>
+        </tr>
+    }
+</table>
